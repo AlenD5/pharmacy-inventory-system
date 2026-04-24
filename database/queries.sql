@@ -1,3 +1,8 @@
+-- ============================================
+-- SYSTEM OPERATIONS (CRUD + TESTING)
+-- These queries support application functionality
+-- ============================================
+
 -- 1. Retrieve all medications
 SELECT *
 FROM medications;
