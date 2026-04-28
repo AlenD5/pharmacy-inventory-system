@@ -1,0 +1,14 @@
+Project: Pharmacy Inventory Management System Java
+
+Instructions:
+1. Import project into NetBeans/Eclipse
+2. Set up MySQL database using provided SQL file
+3. Update database connection credentials in DatabaseConnection.java
+4. Run main program
+
+Features:
+- Add, update, delete medications (CRUD)
+- Search using HashMap
+- Sorting using Merge Sort
+- Low stock queue system
+- MySQL database integration
