@@ -1,34 +1,31 @@
-# Pharmacy Inventory Management System
+Pharmacy Inventory Management System
+A full-stack, web-based application for managing pharmacy medication inventory in real time. Built as a Computer Science senior project at the University of Iowa, Spring 2026.
+Features
 
-## Overview
-This project is a database-driven system designed to manage pharmacy inventory, track medications, and monitor stock levels.
+CRUD operations for medications
+Real-time inventory tracking with low-stock alerts
+Expiration date monitoring
+Transaction history and audit trail
+Search and sorting functionality
+Role-based user access control
 
-## Features
-- CRUD operations for medications
-- Inventory tracking
-- Low-stock alerts
-- Expiration monitoring
-- Transaction history
-- Search and sorting functionality
+Tech Stack
 
-## Database Design
-The system includes 5 main tables:
-- Users
-- Suppliers
-- Medications
-- Inventory
-- Transactions
+Frontend: HTML, CSS, JavaScript
+Backend: Java (Apache Tomcat)
+Database: MySQL
+Server: Apache HTTP Server
+Version Control: Git / GitHub
+Project Management: Jira
 
-## Relationships
-- Suppliers → Medications (1:M)
-- Medications → Inventory (1:M)
-- Inventory → Transactions (1:M)
-- Users → Transactions (1:M)
+Database Design
+5 core tables: Users, Suppliers, Medications, Inventory, Transactions
+Relationships:
 
-## Technologies
-- MySQL
-- Java (Backend)
-- Apache Tomcat
+Suppliers → Medications (1:M)
+Medications → Inventory (1:M)
+Inventory → Transactions (1:M)
+Users → Transactions (1:M)
 
-## Author
-Alen Dizdaric
+Authors
+Alen Dizdaric · Brandon Reagen · Ensar Fejzic
