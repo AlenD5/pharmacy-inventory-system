@@ -7,6 +7,7 @@ package pharmacy_inventory_management_system;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import static pharmacy_inventory_management_system.Pharmacy_Inventory_Management_System.lowStockQueue;
 
 /**
@@ -55,3 +56,4 @@ public class loadLowStockQueue {
         }
     }
 }
+
