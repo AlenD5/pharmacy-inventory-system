@@ -5,14 +5,15 @@
 package pharmacy_inventory_management_system;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.ResultSet;
+import static pharmacy_inventory_management_system.Pharmacy_Inventory_Management_System.inventoryMap;
 
 /**
  *
  * @author Brandon Reagan
  */
 public class loadInventoryMap {
+    
      public static void loadInventoryMap(Connection conn) throws Exception {
         
           // ================= SQL QUERY =================
