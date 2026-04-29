@@ -12,43 +12,43 @@ import java.sql.SQLException;
  *
  * @author Brandon Reagan
  */
-public class DatabaseConnection {
-     public static Connection getConnection() {
+public class loadInventoryMap {
+     public static void loadInventoryMap(Connection conn) throws Exception {
+        
+          // ================= SQL QUERY =================
+
+         // SQL query to retrieve all medication data by joining two tables:
+         // medications (name, category) and inventory (quantity, expiration, location)
+
+        String sql = "SELECT m.medication_name, m.category, i.quantity, i.expiration_date, i.location " +
+                     "FROM medications m JOIN inventory i ON m.medication_id = i.medication_id";
+        
+        // Prepare SQL statement
+        java.sql.PreparedStatement stmt = conn.prepareStatement(sql);
+        
+                // Execute query and store results
+        ResultSet rs = stmt.executeQuery();
+        
+        // Clear existing HashMap to avoid duplicate or outdated data
+        inventoryMap.clear();
+        
+        // ================= PROCESS RESULT SET =================
+        
+        // Loop through each row returned from the database
+        while (rs.next()) {
             
-             // Create a Connection object (initially null)
-            Connection conn = null;
-
-            try {
-                
-                // Database URL (location of MySQL database)
-                String url = "jdbc:mysql://localhost:3306/pharmacyinventorymanagement";
-
-                // MySQL username
-                String user = "root";
-
-                // MySQL password
-                String password = "Database388";
-                
-            // ================= ESTABLISH CONNECTION =================
+            Medication m = new Medication(
+                rs.getString("medication_name"), // get medication name
+                rs.getString("category"),        // get category
+                rs.getInt("quantity"),            // get quantity
+                rs.getDate("expiration_date"),   // get expiration date
+                rs.getString("location")        // get location
+            );
             
-               // Attempt to connect to the database using DriverManager
-                conn = DriverManager.getConnection(url, user, password);
-                
-                // Print confirmation if connection is successful
-                System.out.println("Connected to MySQL successfully!");
-
-            }
-            catch (SQLException e) {
-                
-                 // If connection fails, print error message
-                System.out.println("Connection failed!");
-                
-                // Print detailed error information for debugging
-                e.printStackTrace();
-            }
-            
-            // Return the connection object (either valid or null if failed)
-            return conn;
-            }
-    
+            // Store the medication in HashMap
+            // Key = lowercase name (for consistent searching)
+            // Value = Medication object
+            inventoryMap.put(m.name.toLowerCase(), m);
+        }
+    }
 }
