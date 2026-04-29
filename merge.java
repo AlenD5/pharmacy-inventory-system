@@ -8,6 +8,8 @@ package pharmacy_inventory_management_system;
  *
  * @author Brandon Reagan
  */
+
+import java.util.List;
 public class merge (List<Medication> list, List<Medication> left, List<Medication> right) {
     // i = index for left list
         // j = index for right list
