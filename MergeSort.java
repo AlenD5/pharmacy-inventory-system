@@ -4,12 +4,17 @@
  */
 package pharmacy_inventory_management_system;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Brandon Reagan
  */
-public class mergeSort(List<Medication> list) {
-     // Base case: if list has 0 or 1 element, it is already sorted
+public class MergeSort {
+    public static void mergeSort(List<Medication> list) {
+        
+        // Base case: if list has 0 or 1 element, it is already sorted
         if (list.size() <= 1) return;
         
           // Find the middle index of the list
@@ -29,6 +34,8 @@ public class mergeSort(List<Medication> list) {
         mergeSort(right);
         
         // Merge the two sorted halves back together
-        merge(list, left, right);
+        Merge.merge(list, left, right);
     }
+
+    
 }
