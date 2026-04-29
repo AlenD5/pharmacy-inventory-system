@@ -4,17 +4,14 @@
  */
 package pharmacy_inventory_management_system;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import static pharmacy_inventory_management_system.Pharmacy_Inventory_Management_System.inventoryMap;
+import java.util.Date;
 
 /**
  *
  * @author Brandon Reagan
  */
 public class Medication {
-    
-     // Name of the medication (e.g., Ibuprofen 200mg)
+       // Name of the medication (e.g., Ibuprofen 200mg)
           // Category of medication (e.g., Antibiotic, Pain Relief)
          // Storage location (e.g., Shelf A1)
         String name, category, location;
@@ -56,5 +53,4 @@ public class Medication {
             return name + " | " + category + " | Qty: " + quantity +
                 " | Exp: " + expirationDate + " | Loc: " + location;
         }
-    }
 }
