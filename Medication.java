@@ -12,44 +12,49 @@ import static pharmacy_inventory_management_system.Pharmacy_Inventory_Management
  *
  * @author Brandon Reagan
  */
-public class loadInventoryMap {
+public class Medication {
     
-     public static void loadInventoryMap(Connection conn) throws Exception {
+     // Name of the medication (e.g., Ibuprofen 200mg)
+          // Category of medication (e.g., Antibiotic, Pain Relief)
+         // Storage location (e.g., Shelf A1)
+        String name, category, location;
         
-          // ================= SQL QUERY =================
-
-         // SQL query to retrieve all medication data by joining two tables:
-         // medications (name, category) and inventory (quantity, expiration, location)
-
-        String sql = "SELECT m.medication_name, m.category, i.quantity, i.expiration_date, i.location " +
-                     "FROM medications m JOIN inventory i ON m.medication_id = i.medication_id";
+        // Quantity currently in stock
+        int quantity;
         
-        // Prepare SQL statement
-        java.sql.PreparedStatement stmt = conn.prepareStatement(sql);
         
-                // Execute query and store results
-        ResultSet rs = stmt.executeQuery();
+        // Expiration date of the medication
+        Date expirationDate;
         
-        // Clear existing HashMap to avoid duplicate or outdated data
-        inventoryMap.clear();
+         // ================= CONSTRUCTOR =================
         
-        // ================= PROCESS RESULT SET =================
-        
-        // Loop through each row returned from the database
-        while (rs.next()) {
+        // Constructor initializes all fields when a Medication object is created
+        public Medication(String name, String category, int quantity, Date expirationDate, String location) {
             
-            Medication m = new Medication(
-                rs.getString("medication_name"), // get medication name
-                rs.getString("category"),        // get category
-                rs.getInt("quantity"),            // get quantity
-                rs.getDate("expiration_date"),   // get expiration date
-                rs.getString("location")        // get location
-            );
+            // Assign parameter values to class variables
+            this.name = name;
+            this.category = category;
+            this.quantity = quantity;
+            this.expirationDate = expirationDate;
+            this.location = location;
+        }
+        
+        // ================= GETTER METHOD =================
+        
+        // Returns the expiration date (used for sorting)
+        public Date getExpirationDate() {
+            return expirationDate;
+        }
+        
+         // ================= DISPLAY METHOD =================
+        
+        // Converts Medication object into readable string format
+        @Override
+        public String toString() {
             
-            // Store the medication in HashMap
-            // Key = lowercase name (for consistent searching)
-            // Value = Medication object
-            inventoryMap.put(m.name.toLowerCase(), m);
+            // Return formatted string with all medication details
+            return name + " | " + category + " | Qty: " + quantity +
+                " | Exp: " + expirationDate + " | Loc: " + location;
         }
     }
 }
