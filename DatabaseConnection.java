@@ -5,16 +5,15 @@
 package pharmacy_inventory_management_system;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import static pharmacy_inventory_management_system.Pharmacy_Inventory_Management_System.inventoryMap;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
  * @author Brandon Reagan
  */
- class DatabaseConnection {
-
-            public static Connection getConnection() {
+public class DatabaseConnection {
+     public static Connection getConnection() {
             
              // Create a Connection object (initially null)
             Connection conn = null;
@@ -51,4 +50,5 @@ import static pharmacy_inventory_management_system.Pharmacy_Inventory_Management
             // Return the connection object (either valid or null if failed)
             return conn;
             }
-    }
+    
+}
